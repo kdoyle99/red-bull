@@ -1,0 +1,432 @@
+/* ------------------------- ROOT/GENERAL STYLES ------------------------- */
+
+:root {
+    --red-bull-red: #D2003C;
+    --red-bull-yellow: #FFCC00;
+    --winter-edition: #036CA8;
+    --amber-edition: #F39850;
+    --peach-edition: #891F26;
+
+    --bg-color: white;
+    --text-color: black;
+
+    --box-shadow: -5px 5px 5px rgba(0,0,0,0.2);
+    --hover-shadow: -3px 3px 6px rgba(0,0,0,0.2);
+
+    font-size: 20px;
+}
+
+.dark-mode {
+    --bg-color: black;
+    --text-color: white;
+}
+
+html {
+    background-color: var(--red-bull-red);
+}
+
+html, body {
+    overscroll-behavior: none;
+    color: var(--text-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    line-height: 1.5;
+    font-family: 'Futura', sans-serif;
+    box-sizing: border-box;
+    max-width: 80vw;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    max-width: calc(1280px - 32px);
+    margin: 0 auto;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--red-bull-red);
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+footer {
+    background-color: var(--red-bull-red);
+}
+
+/* ------------------------- HEADER ------------------------- */
+
+header {
+    margin: 0 auto 2rem auto;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: baseline;
+    padding: 20px 0;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav img {
+    height: 50px;
+    width: auto;
+    padding-top: 5px;
+    padding-right: 100px;
+}
+
+.navItem {
+    display: inline-block;
+    transition: scale 0.2s ease;
+}
+
+.navItem:hover {
+    border-bottom: 2px solid var(--red-bull-red);
+    transform: scale(1.15);
+    box-shadow: 0 6px 6px -7px var(--red-bull-red);
+}
+
+/* ------------------------- HEADINGS ------------------------- */
+
+h1, h2, h3, h4 {
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    display: none;
+}
+
+h2 {
+    font-size: 1.65rem;
+    margin: 0.75rem;
+    padding-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.45rem;
+    margin: 0.5rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+    margin: 0.35rem;
+}
+
+/* ------------------------- IMAGES ------------------------- */
+
+img {
+    display: block;
+}
+
+#productDisplay img {
+    height: 500px;
+    width: auto;
+}
+
+/* ------------------------- PARAGRAPHS ------------------------- */
+
+p {
+    max-width: 65ch;
+    padding: 1rem 0;
+    margin: 0 auto;
+}
+
+/* ------------------------- SMALL TEXT ------------------------- */
+
+small {
+    color: white;
+    font-weight: 300;
+    padding: 16px;
+    display: block;
+    text-align: center;
+}
+
+/* ------------------------- BUTTONS/SUBMIT ------------------------- */
+
+button, input[type="submit"] {
+    display: block;
+    padding: 1rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.2s ease, color 0.2s ease, scale 0.2s ease, box-shadow 0.2s ease;
+    font-family: inherit;
+    border-radius: 4px;
+}
+
+
+button:hover {
+    transform: scale(1.15);
+    box-shadow: var(--hover-shadow);
+}
+
+#btn1:hover {
+    background-color: var(--winter-edition);
+}
+
+#btn2:hover {
+    background-color: var(--amber-edition);
+    color: var(--text-color);
+}
+
+#btn3:hover {
+    background-color: var(--peach-edition);
+}
+
+input[type="submit"] {
+    width: 50%;
+    margin: 0 auto;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--red-bull-red);
+    transform: scale(1.15);
+    box-shadow: var(--hover-shadow);
+}
+
+/* ------------------------- FORM CONTROLS ------------------------- */
+
+input, label {
+    display: block;
+    font-size: 1rem;
+}
+
+label {
+    margin: 0.5rem 0 0.25rem 0;
+}
+
+input {
+    padding: 0.5rem 0.25rem;
+    margin: 0 auto 1rem auto;
+    width: calc(100% - 1rem);
+    border-radius: 4px;
+}
+
+input, fieldset, textarea {
+    border: 1px solid black;
+}
+
+
+/* ------------------------- ERROR MESSAGES AND FORM INPUT STYLES ------------------------- */
+
+.message {
+    display: none;
+}
+
+.error {
+    font-size: 1em;
+    display: block;
+}
+
+.errorInput {
+    border: 1px solid var(--red-bull-red);
+}
+
+/* ------------------------- INDIVIDUAL SECTIONS STYLING ------------------------- */
+
+
+#productDisplay, #game, #contact {
+    padding: 2rem;
+    width: calc(100% - 4rem);
+    max-width: 1280px;
+}
+
+#game {
+    color: black;
+}
+
+
+/* ------------------------- PRODUCT DISPLAY ------------------------- */
+
+.currentItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+}
+
+#productDisplay .hiddenItem {
+    display: none;
+}
+
+#switcherButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+    height: 60px;
+    width: fit-content;
+}
+
+#switcherButtons button {
+    font-size: 1.1rem;
+}
+
+#productDisplay img {
+    grid-row: 1/-1;
+}
+
+#productDisplay h3 {
+    grid-column: 2/-1;
+    align-self: end;
+}
+
+#productDisplay p {
+    padding: 0 2rem;
+}
+
+/* ------------------------- GUESSING GAME ------------------------- */
+
+#game {
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: var(--red-bull-yellow);
+}
+
+#game div {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#game form {
+    width: 100%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+#game input {
+    display: inline-block;
+    width: 50px;
+}
+
+#game label {
+    display: inline-block;
+}
+
+#game #guessGame {
+    display: block;
+    width: auto;
+}
+
+#game input[type="submit"] {
+    background-color: black;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+#game input[type="submit"]:hover {
+    background-color: var(--red-bull-red);
+}
+
+#gameOutput {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 350px;
+    margin: 0 auto;
+    padding-left: 24px;
+}
+
+#gameOutput span {
+    display: grid;
+    width: 20px;
+    height: 20px;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    margin: 0.5rem auto;
+    line-height: 20px;
+    justify-content: center;
+}
+
+#gameMsg {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* ------------------------- CONTACT FORM ------------------------- */
+
+#contact form {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+fieldset {
+    margin-bottom: 24px;
+    border-radius: 4px;
+    display: grid;
+    row-gap: 8px;
+    grid-template-columns: 1fr 12fr;
+}
+
+fieldset label, fieldset input {
+    padding: 0;
+    margin: 0;
+}
+
+fieldset input {
+    width: 20px;
+}
+
+fieldset label {
+    width: 200px;
+}
+
+textarea {
+    border-radius: 4px;
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 2rem;
+}
+
+/* ------------------------- ERRORS/VALIDATION ------------------------- */
+
+#success {
+    display: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+#success.show {
+    display: block;
+}
+
+#success.hide {
+    display: none;
+}
+
+.message.error {
+    display: block;
+    color: var(--red-bull-red);
+    font-weight: bold;
+    font-size: 0.75em;
+    padding-left: 0.5rem;
+}
+
+
+
