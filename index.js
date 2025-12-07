@@ -32,6 +32,7 @@ const body = document.body;
 function valOnSubmit(e) {
     e.preventDefault();
 
+    // Form valid - remove error classes
     let isValid = true;
 
     nameInput.classList.remove("errorInput");
@@ -44,7 +45,8 @@ function valOnSubmit(e) {
     document.querySelector("#success").classList.remove("show");
     document.querySelector("#success").classList.add("hide");
 
-
+    // Form invalid - check for errors and add error classes
+    // Name validate
     if (nameInput.value.trim() === "") {
         nameInput.classList.add("errorInput");
 
@@ -53,21 +55,25 @@ function valOnSubmit(e) {
         isValid = false;
     }
 
+    // Regex for email and phone inputs
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /\d{10}$/;
 
+    // Phone input validate
     if (!phoneRegex.test(phoneInput.value.trim())) {
         phoneInput.classList.add("errorInput");
 
         isValid = false;
     }
 
+    // Email input validate
     if (!emailRegex.test(emailInput.value)) {
         emailInput.classList.add("errorInput");
 
         isValid = false;
     }
 
+    // Comments input validate
     if (commentsInput.value.trim() === "") {
         commentsInput.classList.add("errorInput");
 
@@ -75,7 +81,8 @@ function valOnSubmit(e) {
 
         isValid = false;
     }
-
+  
+    // Valid form result and form reset
     if(isValid) {
         document.querySelector("#success").classList.remove("hide");
         document.querySelector("#success").classList.add("show");
@@ -89,30 +96,38 @@ function valOnSubmit(e) {
 function playGame(e) {
     e.preventDefault();
 
+    // Select user guess value
     const userGuess = parseInt(guessInput.value);
 
+    // User guess value validation
     if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
         gameMsg.textContent = "Please enter a number between 1 and 10";
         return;
     }
 
+    // Select randomly computed winning number
     const winningNumber = Math.floor(Math.random() * 10) + 1;
 
+    // Set user number display and random number display to their values
     userNumDisplay.textContent = userGuess;
     randomNumDisplay.textContent = winningNumber;
 
+    // User guess compared to winning number result
     if (userGuess === winningNumber) {
         gameMsg.textContent = "Congratulations! You win";
     } else {
         gameMsg.textContent = "Sorry, try again"
     }
 
+    // Reset user guess input
     guessInput.value = "";
 }
 
 // -------------------- PRODUCT DISPLAY FUNCTION --------------------
 
 function showProduct(index) {
+
+    // Change current product displayed to product selected
     products.forEach((product, i) => {
         if (i === index) {
             product.classList.remove("hiddenItem");
@@ -130,8 +145,11 @@ showProduct(0);
 // -------------------- DARK MODE TOGGLE --------------------
 
 function toggleTheme() {
+
+    // Toggle dark mode theme
     body.classList.toggle("dark-mode");
 
+    // Change button to display "Light Mode" after dark mode is toggled or change button to display "Dark Mode" if light mode is toggled
     if (body.classList.contains("dark-mode")) {
         themeToggle.textContent = "Light Mode";
     } else {
@@ -142,6 +160,7 @@ function toggleTheme() {
     localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 
+// Keep theme saved if user reloads or leaves page
 if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark-mode");
     themeToggle.textContent = "Light Mode";

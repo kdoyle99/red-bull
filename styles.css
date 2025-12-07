@@ -76,6 +76,12 @@ header {
     margin: 0 auto 2rem auto;
 }
 
+nav {
+    width: 96%;
+    margin: 0 auto;
+
+}
+
 nav ul {
     display: flex;
     flex-direction: row;
@@ -92,11 +98,12 @@ nav img {
     height: 50px;
     width: auto;
     padding-top: 5px;
-    padding-right: 100px;
+    padding-right: 80px;
 }
 
 .navItem {
     display: inline-block;
+    margin: 0 0.5rem;
     transition: scale 0.2s ease;
 }
 
@@ -105,6 +112,14 @@ nav img {
     transform: scale(1.15);
     box-shadow: 0 6px 6px -7px var(--red-bull-red);
 }
+
+#themeToggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 20;
+}
+
 
 /* ------------------------- HEADINGS ------------------------- */
 
@@ -176,7 +191,6 @@ button, input[type="submit"] {
     border-radius: 4px;
 }
 
-
 button:hover {
     transform: scale(1.15);
     box-shadow: var(--hover-shadow);
@@ -184,15 +198,17 @@ button:hover {
 
 #btn1:hover {
     background-color: var(--winter-edition);
+    color: white;
 }
 
 #btn2:hover {
     background-color: var(--amber-edition);
-    color: var(--text-color);
+    color: black;
 }
 
 #btn3:hover {
     background-color: var(--peach-edition);
+    color: white;
 }
 
 input[type="submit"] {
@@ -255,6 +271,7 @@ input, fieldset, textarea {
 
 #game {
     color: black;
+    box-shadow: 0 -4px 6px -4px var(--text-color), 0 4px 6px -4px var(--text-color);
 }
 
 
